@@ -46,10 +46,6 @@ Implement create an order of a robot given a list of component codes.
 *Output*
 `201 {"order_id": "some-id", "total": 160.11 }`
 
-## Requirements
-
-gradle >= 6.0.1 (Sorry, we can not send a zip with gradlew for security reasons)
-
 ## Considerations
 - We are providing a skeleton with all dependencies and a few acceptance tests to check if the problem is
   working, but *all the code should be fully tested at all levels*.
