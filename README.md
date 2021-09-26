@@ -49,7 +49,7 @@ Implement create an order of a robot given a list of component codes.
 ## Considerations
 - We are providing a skeleton with all dependencies and a few acceptance tests to check if the problem is
   working, but *all the code should be fully tested at all levels*.
-- All tests should pass `gradle test`
+- All tests should pass `mvn clean install`
 - Please write clean code
 - We are going to look for good design and architecture
 - Don’t use any database or library.
