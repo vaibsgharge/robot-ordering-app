@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,5 +40,12 @@ public class RobotFactoryController {
     public ResponseEntity<OrderStatus> placeOrder(@RequestBody Order order) {
         Optional<OrderStatus> orderStatus = orderServiceImpl.processOrder(order, inventoryData);
         return orderStatus.isPresent() ? status(CREATED).body(orderStatus.get()) : status(UNPROCESSABLE_ENTITY).body(null);
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<String> handleNoSuchElementFoundException() {
+        return ResponseEntity
+                .status(UNPROCESSABLE_ENTITY)
+                .body("Unprocessable Entity");
     }
 }
